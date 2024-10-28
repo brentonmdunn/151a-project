@@ -40,7 +40,7 @@ The path to where the data is will be printed to the console.
 (2) Or download from [Kaggle](https://www.kaggle.com/datasets/kacpergregorowicz/house-plant-species).
 
 
-Move the data (either with `mv` or with GUI) so that the file structure looks like the following:
+The parent folder for the data should be called `house_plant_species`. Move the data (either with `mv` or with GUI) so that the file structure looks like the following:
 - fa24-cse151a-project (current working directory)
   - house_plant_species
   - download_data.py

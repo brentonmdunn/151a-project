@@ -77,4 +77,4 @@ We are working with an image dataset containing 14,790 images of varying quality
 <hr>
 
 
-Colab link: https://colab.research.google.com/drive/1Inr1L6lXyXvhoxw_a7Zp9FFUmnFG9YcH?usp=sharing
+Colab link: https://colab.research.google.com/drive/1VvqAhQm4E3d7HdeohxEGQkX4qhBNbrfR?usp=sharing

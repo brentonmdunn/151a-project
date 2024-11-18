@@ -74,5 +74,31 @@ We are working with an image dataset containing 14,790 images of varying quality
 
 <hr>
 
+## Preprocessing Questions
+Where does your model fit in the fitting graph? What are the next models you are thinking of and why?
 
-Colab link: https://colab.research.google.com/drive/1VvqAhQm4E3d7HdeohxEGQkX4qhBNbrfR?usp=sharing
+We are possibly underfitting since our:
+- Training data is around 0.2900 
+- Validation is around 0.1866
+- Test is around 0.1945
+- Baseline loss would be around 3.85, and since our loss reach 2.644 we are improving but ideally loss would be closer to 1
+- Even though the training dataset is higher in accuracy than the validation and test, holistically speaking, we would need to run the epochs more to capture the data better.
+  ![image](https://github.com/user-attachments/assets/477c517e-4d5f-4e15-86f4-43bb1601cdd2)
+
+We could try:
+- Deeper CNN model since the additional layers may be able to catch smaller details like certain patterns on the leaves
+- CNN with attention so that it could focus on more important parts, also like the patterns on leaves.
+- Pretrained models with transfer learning since it can reduce the training time since our model takes a while to train, and improve accuracy at the same time.
+
+## Preprocessing Conclusion
+What is the conclusion of your 1st model? What can be done to possibly improve it?
+
+The conclusion of our 1st model is:
+- It has an accuracy higher than random since random would only be only be 2.12%, however it is overfitting to the training data
+
+We could improve it by:
+- Increasing the number of epochs
+- Add data augmentation by adding transformations (torchvision.transforms, flips, scaling)
+- Change learning rate
+- Regularization (dropout, weight decay)
+- Change network architecture parameters

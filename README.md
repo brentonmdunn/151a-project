@@ -94,7 +94,7 @@ We could try:
 What is the conclusion of your 1st model? What can be done to possibly improve it?
 
 The conclusion of our 1st model is:
-- It has an accuracy higher than random since random would only be only be 2.12%, however it is overfitting to the training data
+- It has an accuracy higher than random since random would only be only be 2.12%, however it is overfitting to the training data as mentioned above with the preprocessing questions
 
 We could improve it by:
 - Increasing the number of epochs
@@ -102,3 +102,8 @@ We could improve it by:
 - Change learning rate
 - Regularization (dropout, weight decay)
 - Change network architecture parameters
+
+
+# Ground Truth and Example Predictions for Train, Validation, and Test
+![image](https://github.com/user-attachments/assets/551d307a-5f93-4fb8-8472-5046451755e3)
+

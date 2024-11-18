@@ -105,7 +105,7 @@ Major items:
 ## What is the conclusion of your 1st model? What can be done to possibly improve it?
 
 The conclusion of our 1st model is:
-- It has an accuracy higher than random since random would only be only be 2.12%. Even though the test accuracy is higher than the train accuracy and one may think that we are overfitting, since in the wider picture both accuracies are relatively low, we believe that we are underfitting the model. Due to compute limitations, we had limited hyperparameter tuning.
+- It has an accuracy higher than random since random would only be only be 2.12%. Even though the test accuracy is higher than the train accuracy and one may think that we are overfitting, since in the wider picture both accuracies are relatively low, we believe that we are underfitting the model. This makes sense since due to compute limitations, we had limited hyperparameter tuning.
 
 We could improve it by:
 - Increasing the number of epochs

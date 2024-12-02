@@ -261,6 +261,9 @@ weighted avg   	0.32  	0.27  	0.25  	2241
 
 **3: Answer the questions: Where does your model fit in the fitting graph? and What are the next models you are thinking of and why?**
 
+![Fit](https://github.com/user-attachments/assets/c53b111d-3739-4985-a923-86cada3fb370)
+
+
 Our initial model had a train accuracy of 99% and a test accuracy of 16%. We then did a bit of hyperparameter tuning of pixels_per_cell, cells_per_block, C values, and type of kernel. We realized that linear kernels seemed to massively overfit, getting a high 90% range in train data with test data accuracy between 15% and 20%. This would put the model squarely in the orange arrow. A low C value did not help with this. We then switched to an rbf kernel. We played around with the various parameters, but most results hovered around the ~87% train accuracy range and ~25% test accuracy range. We initially tried to have a lower C of .1 and .01 to simplify the model but it massively underfit the model (light green arrow) with both train and test accuracy around 3%. We then tried C=.5 which put the model around the dark green arrow and had a 46% train accuracy and 20% test accuracy.
 
 
@@ -272,7 +275,7 @@ All code for MS4 is in MS4-latest-models.ipynb. All of the work for our current 
 
 The main new work that we did was add an additional model, which for this milestone ended up being an SVM with a rbf kernel. We used the same splits and pre processing as previous milestones.
 
-**5. Conclusion section: What is the conclusion of your 2nd model? What can be done to possibly improve it? Note: The conclusion section should be it's own independent section. i.e. Methods: will have models 1 and 2 methods, Conclusion: will have models 1 and 2 results and discussion. **
+**5. Conclusion section: What is the conclusion of your 2nd model? What can be done to possibly improve it? Note: The conclusion section should be it's own independent section. i.e. Methods: will have models 1 and 2 methods, Conclusion: will have models 1 and 2 results and discussion.**
 
 TODO
 

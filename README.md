@@ -125,8 +125,8 @@ We could improve it by:
 
 # MS4
 
-**1: Train your second model. Make sure you use a different model than in MS3, and you must fine-tune your model to get an accurate comparison.
-**
+**1: Train your second model. Make sure you use a different model than in MS3, and you must fine-tune your model to get an accurate comparison.**
+
 Our MS3 model was a CNN and our MS4 model is SVM. In order to ensure that we get an accurate comparison, we made sure that our train/test/split ratios stayed the same and that we used the same random seed to make the split.
 
 **2: Evaluate your model and compare training vs. test error
@@ -259,8 +259,7 @@ Classification report:           	precision	recall  f1-score   support
 weighted avg   	0.32  	0.27  	0.25  	2241
 ```
 
-**3: Answer the questions: Where does your model fit in the fitting graph? and What are the next models you are thinking of and why?
-**
+**3: Answer the questions: Where does your model fit in the fitting graph? and What are the next models you are thinking of and why?**
 
 Our initial model had a train accuracy of 99% and a test accuracy of 16%. We then did a bit of hyperparameter tuning of pixels_per_cell, cells_per_block, C values, and type of kernel. We realized that linear kernels seemed to massively overfit, getting a high 90% range in train data with test data accuracy between 15% and 20%. This would put the model squarely in the orange arrow. A low C value did not help with this. We then switched to an rbf kernel. We played around with the various parameters, but most results hovered around the ~87% train accuracy range and ~25% test accuracy range. We initially tried to have a lower C of .1 and .01 to simplify the model but it massively underfit the model (light green arrow) with both train and test accuracy around 3%. We then tried C=.5 which put the model around the dark green arrow and had a 46% train accuracy and 20% test accuracy.
 
@@ -279,4 +278,4 @@ TODO
 
 **6. Provide predictions of correct and FP and FN from your test dataset.**
 
-See (3)
+See (2)

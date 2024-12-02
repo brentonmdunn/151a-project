@@ -335,4 +335,4 @@ TODO
 
 **6. Provide predictions of correct and FP and FN from your test dataset.**
 
-See (2)
+Please review the respective classification report and heatmap for this new model (called HOG+SVM). In addition, you can see the same details for our first model (CNN).

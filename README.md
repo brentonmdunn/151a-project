@@ -331,7 +331,19 @@ The main new work that we did was add an additional model, which for this milest
 
 **5. Conclusion section: What is the conclusion of your 2nd model? What can be done to possibly improve it? Note: The conclusion section should be it's own independent section. i.e. Methods: will have models 1 and 2 methods, Conclusion: will have models 1 and 2 results and discussion.**
 
-TODO
+Model 1 (CNN):
+
+Boston Fern is predicted correctly really often with the highest recall. This may be because the texture of the fern is very distinct and the CNN is able to detect it well. Similar to daffodils, and hyacinth which are also predicted moderately correctly since they have flowers are easier to identify.
+However there were also many that were predicted incorrectly all the time like aloe vera, ctenanthe, and dracaena which be because these plants are primarily long leaved plants which are very common, so specifics with overlapping characteristics are getting confused
+
+
+Model 2 (HOG+SVM):
+
+Based on the confusion matrix, the model shows strong performance in correctly predicting some classes, as indicated by the intense blue shades along the diagonal for categories like Chinese Money Plant (Pilea Peperomiodes), Dumb Cane, and Monstera Deliciosa. These classes consistently achieve high prediction accuracy, suggesting that their features are distinct and easily separable by the model. This may be due to unique attributes such as texture, color, or shape that make these classes less prone to overlap with others.
+However, the model struggles with several classes that exhibit higher misclassification rates, such as Chrysanthemum, Schefflera, and Tradescantia. These categories often overlap with other classes in the confusion matrix, suggesting that their features may be more ambiguous or similar to those of other plants. For example, Chrysanthemum is frequently confused with Daffodils (Narcissus spp.), possibly due to similarities in floral structure or color patterns. 
+A key pattern in the incorrect predictions is that misclassifications frequently occur between plants with similar morphological or visual characteristics. This trend indicates that the model might rely heavily on surface-level visual features and lacks a deeper ability to distinguish subtle differences. Additionally, some classes may suffer from class imbalance in the training data, leading to lower representation and weaker learning for those categories.
+To improve the model, it may be helpful to augment the dataset with more diverse and representative images for the misclassified classes. Feature engineering or transfer learning from a pre-trained model specialized in plant identification could also enhance the model’s ability to capture finer distinctions. Finally, refining preprocessing techniques, such as normalizing image backgrounds or focusing on critical regions like flowers or leaves, could help mitigate the observed challenges.
+
 
 **6. Provide predictions of correct and FP and FN from your test dataset.**
 

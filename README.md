@@ -123,14 +123,14 @@ We could improve it by:
 
 <hr>
 
-## MS4
+# MS4
 
-1: Train your second model. Make sure you use a different model than in MS3, and you must fine-tune your model to get an accurate comparison.
-
+**1: Train your second model. Make sure you use a different model than in MS3, and you must fine-tune your model to get an accurate comparison.
+**
 Our MS3 model was a CNN and our MS4 model is SVM. In order to ensure that we get an accurate comparison, we made sure that our train/test/split ratios stayed the same and that we used the same random seed to make the split.
 
-2: Evaluate your model and compare training vs. test error
-
+**2: Evaluate your model and compare training vs. test error
+**
 After a lot of hyperparameter tuning, the model we decided to go with had the following hyperparameters:
 - HOG feature extraction with parameters:
   - orientation=12
@@ -259,11 +259,24 @@ Classification report:           	precision	recall  f1-score   support
 weighted avg   	0.32  	0.27  	0.25  	2241
 ```
 
-3: Answer the questions: Where does your model fit in the fitting graph? and What are the next models you are thinking of and why?
-
+**3: Answer the questions: Where does your model fit in the fitting graph? and What are the next models you are thinking of and why?
+**
 
 Our initial model had a train accuracy of 99% and a test accuracy of 16%. We then did a bit of hyperparameter tuning of pixels_per_cell, cells_per_block, C values, and type of kernel. We realized that linear kernels seemed to massively overfit, getting a high 90% range in train data with test data accuracy between 15% and 20%. This would put the model squarely in the orange arrow. A low C value did not help with this. We then switched to an rbf kernel. We played around with the various parameters, but most results hovered around the ~87% train accuracy range and ~25% test accuracy range. We initially tried to have a lower C of .1 and .01 to simplify the model but it massively underfit the model (light green arrow) with both train and test accuracy around 3%. We then tried C=.5 which put the model around the dark green arrow and had a 46% train accuracy and 20% test accuracy.
 
 
 When experimenting for this milestone, we looked at both decision trees and SVMs. We ultimately decided to go with SVMs because it provided higher accuracy with the simple model that we created. For future models, we may try decision trees. We also may look at various feature extraction methods. We went with Histogram of Oriented Gradients (HOG) feature extraction on the recommendation of ChatGPT but may look into other ways to extract features from images for our input feature matrix. 
 
+**4: Update your README.md to include your new work and updates you have all added. Make sure to upload all code and notebooks. Provide links in your README.md**
+
+All code for MS4 is in MS4-latest-models.ipynb. All of the work for our current model is in the block called Model 2.4 and we specifically used the code in the block called "block we were working on". There was an issue in MS3 where the GitHub preview was not rendering the whole file. If you download the ipynb, it should all be there.
+
+The main new work that we did was add an additional model, which for this milestone ended up being an SVM with a rbf kernel. We used the same splits and pre processing as previous milestones.
+
+**5. Conclusion section: What is the conclusion of your 2nd model? What can be done to possibly improve it? Note: The conclusion section should be it's own independent section. i.e. Methods: will have models 1 and 2 methods, Conclusion: will have models 1 and 2 results and discussion. **
+
+TODO
+
+**6. Provide predictions of correct and FP and FN from your test dataset.**
+
+See (3)

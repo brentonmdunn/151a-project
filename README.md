@@ -325,7 +325,7 @@ When experimenting for this milestone, we looked at both decision trees and SVMs
 
 **4: Update your README.md to include your new work and updates you have all added. Make sure to upload all code and notebooks. Provide links in your README.md**
 
-All code for MS4 is in [MS4-with-reports-maps.ipynb](https://github.com/brentonmdunn/fa24-cse151a-project/blob/Milestone4/MS4-with-reports-maps.ipynb). All of the work for our current model is in the block called Model 2.4 and we specifically used the code in the block called "block we were working on". There was an issue in MS3 where the GitHub preview was not rendering the whole file. If you download the ipynb, it should all be there.
+All code for MS4 is in [MS4-with-reports-maps.ipynb](https://github.com/brentonmdunn/fa24-cse151a-project/blob/Milestone4/MS4-with-reports-maps.ipynb). All of the work for our current model is in the block called Model 2.4. There was an issue in MS3 where the GitHub preview was not rendering the whole file. If you download the ipynb, it should all be there.
 
 The main new work that we did was add an additional model, which for this milestone ended up being an SVM with a rbf kernel. We used the same splits and pre processing as previous milestones.
 

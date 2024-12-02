@@ -140,8 +140,11 @@ After a lot of hyperparameter tuning, the model we decided to go with had the fo
   - Scaled via StandardScaler
 - SVM with an rbf kernel 
   - C=1
-This provided the following accuracy: 
+  - 
+This provided the following accuracy:
+
 Train: 87%
+
 Test: 27%
 
 ```

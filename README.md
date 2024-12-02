@@ -129,8 +129,8 @@ We could improve it by:
 
 Our MS3 model was a CNN and our MS4 model is SVM. In order to ensure that we get an accurate comparison, we made sure that our train/test/split ratios stayed the same and that we used the same random seed to make the split.
 
-**2: Evaluate your model and compare training vs. test error
-**
+**2: Evaluate your model and compare training vs. test error**
+
 After a lot of hyperparameter tuning, the model we decided to go with had the following hyperparameters:
 - HOG feature extraction with parameters:
   - orientation=12

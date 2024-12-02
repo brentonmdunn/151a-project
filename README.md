@@ -123,9 +123,14 @@ We could improve it by:
 
 <hr>
 
+## MS4
+
 1: Train your second model. Make sure you use a different model than in MS3, and you must fine-tune your model to get an accurate comparison.
+
 Our MS3 model was a CNN and our MS4 model is SVM. In order to ensure that we get an accurate comparison, we made sure that our train/test/split ratios stayed the same and that we used the same random seed to make the split.
+
 2: Evaluate your model and compare training vs. test error
+
 After a lot of hyperparameter tuning, the model we decided to go with had the following hyperparameters:
 - HOG feature extraction with parameters:
   - orientation=12
@@ -253,6 +258,7 @@ Classification report:           	precision	recall  f1-score   support
    macro avg   	0.35  	0.24  	0.24  	2241
 weighted avg   	0.32  	0.27  	0.25  	2241
 ```
+
 3: Answer the questions: Where does your model fit in the fitting graph? and What are the next models you are thinking of and why?
 
 

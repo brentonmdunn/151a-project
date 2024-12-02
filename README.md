@@ -135,7 +135,7 @@ Our MS3 model was a CNN and our MS4 model is SVM. In order to ensure that we get
 After a lot of hyperparameter tuning, the model we decided to go with had the following hyperparameters:
 - HOG feature extraction with parameters:
   - orientation=12
-  - pixels_per_cell=(8,8)
+  - pixels_per_cell=(16,16)
   - cells_per_block=(2,2)
   - block_norm=’L2-Hys’
   - Scaled via StandardScaler

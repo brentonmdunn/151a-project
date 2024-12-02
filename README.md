@@ -336,6 +336,8 @@ Model 1 (CNN):
 Boston Fern is predicted correctly really often with the highest recall. This may be because the texture of the fern is very distinct and the CNN is able to detect it well. Similar to daffodils, and hyacinth which are also predicted moderately correctly since they have flowers are easier to identify.
 However there were also many that were predicted incorrectly all the time like aloe vera, ctenanthe, and dracaena which be because these plants are primarily long leaved plants which are very common, so specifics with overlapping characteristics are getting confused
 
+There are less images for aloe vera and dracena, abt 100 less images. Since this may be a common issue among some of the underrepresented classes, we can try more data augmentation to increase the diversity
+
 
 Model 2 (HOG+SVM):
 

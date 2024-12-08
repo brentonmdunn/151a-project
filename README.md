@@ -61,6 +61,19 @@ The parent folder for the data should be called `house_plant_species`. Move the 
   - data_exploration.ipynb
   - requirements.txt
 
+## Data Exploration
+This dataset was sourced from Kaggle and contains 14,790 images of various houseplant species across 47 classes. 
+### Key Features
+- Number of images: 14,790
+- Number of classes: 47
+- Source: Bing Images
+- Curation: Manually curated by a non-professional biologist
+- Organization: Images are organized into folders named after each plant species
+### Image Characteristics
+- Variability in quality, resolution, and size
+- Taken in both indoor and outdoor settings
+- Includes both close-ups of features and depictions of whole plants
+
 ## Preprocessing Steps
 We are working with an image dataset containing 14,790 images of varying quality, resolution, and size. Given these parameters, as well as the details gathered from our data exploration step, we plan to perform the following preprocessing steps to the dataset before training our model:
 

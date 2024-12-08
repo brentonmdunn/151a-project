@@ -63,13 +63,15 @@ The parent folder for the data should be called `house_plant_species`. Move the 
 
 ## Data Exploration
 This dataset was sourced from Kaggle and contains 14,790 images of various houseplant species across 47 classes. 
-### Key Features
+
+**Key Features**
 - Number of images: 14,790
 - Number of classes: 47
 - Source: Bing Images
 - Curation: Manually curated by a non-professional biologist
 - Organization: Images are organized into folders named after each plant species
-### Image Characteristics
+
+**Image Characteristics**
 - Variability in quality, resolution, and size
 - Taken in both indoor and outdoor settings
 - Includes both close-ups of features and depictions of whole plants

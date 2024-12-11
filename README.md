@@ -1,5 +1,3 @@
-**[Milestone 4 bookmark](https://github.com/brentonmdunn/fa24-cse151a-project/tree/Milestone4?tab=readme-ov-file#ms4)**
-
 # CSE 151A Project
 
 Group members:

@@ -365,3 +365,83 @@ To improve the model, it may be helpful to augment the dataset with more diverse
 **6. Provide predictions of correct and FP and FN from your test dataset.**
 
 Please review the respective classification report and heatmap for this new model (called HOG+SVM). In addition, you can see the same details for our first model (CNN).
+
+<hr>
+
+# Written Report
+## Introduction
+At a quick glance, humans are able to distinguish species of plants based on their color, texture, and structure. With knowledge of the differences between plant species, human classification of plants is fairly accurate. It is crucial to correctly identify a plant’s species in order to properly care for the plant. A misdiagnosis can lead to poor plant health or even plant death. 
+
+An efficient, accurate image classification model would be a valuable tool to the general plant-owner, botanist, and anyone who is interested in taking care of or learning more about plants. This would allow for quick identification of a plant species, which could be beneficial to businesses and for education.
+
+Modern image classification methods, like convolutional neural networks (CNN) and support vector machines (SVM), utilize algorithms to efficiently group images based on distinct features. CNNs, modeled after the human brain, involve using connected convolutional and pooling layers in order to identify patterns and features associated with classes of images. These identifiers get passed along between layers, and thus the model is able to effectively train accordingly. SVMs organize data into a hyperplane, dividing points into different classes with the intention of finding the hyperplane that maximizes the margin between the hyperplane and support vectors. While pulling raw image data may be useful, methods have been developed to extract features from raw image data. One such method is called histogram of oriented gradients (HOG) which looks at smaller localized regions and computes a histogram of gradient directions within each cell. 
+
+In this project, we will compare the accuracy between different models - CNN and HOG + SVM - and the tradeoffs that are associated with their differentiations in simplicity, speed, and training techniques. Our model is not entirely accurate when it comes to deciphering more subtle features or underrepresented species. Though it is able to correctly identify some species, enhancements such as data augmentation and refining preprocessing techniques may lead to further improvements in our model.
+
+## Methods
+### Data Exploration
+The dataset used in this study was sourced from Kaggle and contained a total of 14,790 images of various houseplant species, categorized across 47 different classes. The images were sourced from Bing Images and were manually curated by a non-professional biologist. The dataset was organized in folders, with each folder named after a specific plant species, which made it easy to identify and segregate the data based on plant type.
+
+The images exhibited significant variability in terms of quality, resolution, and size. They were taken in both indoor and outdoor settings and included a variety of perspectives, such as close-up images of plant features and full depictions of entire plants. This variability in image characteristics required careful consideration during preprocessing to ensure consistent and high-quality input for model training.
+
+### Preprocessing
+Given the dataset's characteristics, we implemented the following preprocessing steps before training the model.
+
+First, we checked for and removed any corrupted images to avoid potential issues during training, as corrupted images could negatively affect the model’s performance. Next, we resized all images to a consistent size of 224x224 pixels to ensure uniform input dimensions, which was crucial for the model to process the images efficiently and consistently.
+
+Additionally, we created label encoding and one-hot encoding for the 47 plant classes. One-hot encoding was applied for non-ordinal categories, as it is widely used in classification tasks, though it can be computationally expensive and may lead to the curse of dimensionality. On the other hand, label encoding was more efficient but could potentially create unintended ordering of the classes. We experimented with both types of encoding to determine which approach best suited our specific use case.
+
+### Model 1
+We chose a Convolutional Neural Network (CNN) as our first model. Our CNN model ```PlantClassifierCNN``` consists of two convolutional layers (```conv1```, ```conv2```), each followed by a ReLU activation function and max pooling. The convolutional layers use 3x3 kernels with ```stride=1``` and ```padding=1```. ```conv1``` has 3 input channels (for RGB images) and 32 output channels, while ```conv2``` has 32 input channels and 64 output channels. Max pooling uses a 2x2 kernel with ```stride=2```.
+
+The output of the convolutional layers is flattened and passed through two fully connected layers (```fc1```, ```fc2```).  ```fc1``` has an input size of 64 * 56 * 56 and 128 output neurons, followed by a ReLU activation. ```fc2``` has 128 inputs and outputs a number of classes specified in the model initialization. The model uses the Adam optimizer with ```learning rate=0.001``` and CrossEntropyLoss as the loss function. Training was performed for 5 epochs.
+
+### Model 2
+We chose a Support Vector Machine (SVM) as our second model, with Histogram of Oriented Gradients (HOG) as our feature representation method. Our HOG feature extraction process uses 12 gradient orientations, a 16x16 pixel cell size, and 2x2 cells per block, with ‘L2-Hys' block normalization.
+
+Our SVM model employs an 'rbf' kernel and utilizes default parameters for the SVC class from scikit-learn, and data scaling performed by StandardScaler prior to training.
+
+## Results
+For Model 1 (CNN), the training accuracy was 76.41%, but the validation accuracy dropped significantly to 19.15%, with the test accuracy further decreasing to 20.17%. This indicates that the CNN model struggled to generalize to unseen data.
+
+Model 2 (HOG + SVM) showed improved performance across all metrics. The training accuracy was 87.35%, with a validation accuracy of 25.31% and a test accuracy of 24.50%. These results indicate a notable improvement in generalization compared to the CNN model, as the drop in accuracy from training to validation and test sets was less pronounced.
+
+*(INSERT RESULT FIGURES HERE)*
+
+## Discussion
+This project explored two different approaches for classifying plant images: a Convolutional Neural Network (CNN) and a combination of Histogram of Oriented Gradients (HOG) with a Support Vector Machine (SVM). Here is a walkthrough of our process from start to finish.
+
+### The Dataset
+The first challenge was with the dataset itself. Some plant species had more examples than others, which created an imbalance and may have made it harder for the models to learn about the less common species. We did some preprocessing–resizing, normalizing, and data augmentation–but looking back, we could’ve gone further. Because there were so many plant classes, there were certain ones that were overrepresented and others that were underrepresented. Techniques like oversampling the underrepresented species or generating more examples might have helped with the imbalance.
+
+### Model 1: Convolutional Neural Network (CNN)
+We wanted to start with a CNN model because it’s a common tool for image classification. But in practice, it didn’t perform as well as we hoped. The training accuracy was decent, but when it came to validation and test data, the model struggled. This was probably a sign of overfitting–it learned the training data too well but couldn’t generalize to new images.
+
+The CNN’s architecture was pretty simple, with just two convolutional layers, and it might not have been deep enough to really pick up on the subtle differences between plant species. Also, we only trained it for five epochs, which wasn’t much time for the model to learn, especially for image data. On top of that, while we did some basic data augmentation, adding more variations like changing lighting or rotation might have helped the CNN handle real-world scenarios betters.
+
+### Model 2: HOG + SVM
+The HOG + SVM model did better overall. It did a good job of pulling out clear features like shapes and edges, and the SVM uses those features to separate the plant species into classes. While it outperformed the CNN, it still wasn’t ideal–especially on the validation and test sets. Similarly, this model showed having trouble with generalization too.
+
+One thing about HOG + SVM is that it relies on manually crafted features, which means to might miss some of the more complex patterns that a deep learning model like a CNN could potentially learn. Also, we didn’t do much hyperparameter tuning for the SVM. If we’d spent more time tweaking settings like the kernel or regularization parameters, the results might have been better.
+
+### Comparing the Two
+The CNN had the potential to automatically learn features directly from the images, but it needed more training, a better architecture, and maybe even more data. On the other hand, the HOG + SVM model didn’t require as much training or computational power, so it performed better under these constraints. But it also has its limits–it’s not as flexible and can’t adapt as well to complex datasets.
+
+## Conclusion
+### What We Learned
+Although the test accuracy for both models was lower than we expected, there are a lot of things we have learned for the future:
+Use techniques like oversampling or generating synthetic data to give the underrepresented species a better proportion.
+For the CNN, experiment with deeper architectures or use pre-trained models like ResNet or VGG. And, we can also train with more epochs.
+Perform more hyperparameter tuning on the SVM.
+Add metrics like precision, recall, and F1-score to see where the models do well and where they fall short.
+
+Overall, this project taught us a lot about the trade-offs between traditional machine learning and deep learning. CNNs are powerful but need careful setup and lots of data to work well. HOG + SVM is a simpler option that works decently in constrained situations but doesn’t have the flexibility of a deep learning model. While neither model was perfect, they each showed potential and gave us ideas for what to try next.
+
+## Statement of Collaboration
+- Catherine Du (c5du@ucsd.edu)
+- Brenton Dunn (bmdunn@ucsd.edu)
+- Matthew Tan (mztan@ucsd.edu)
+- Trisha Tong (trtong@ucsd.edu)
+- Sophia Yu (soy001@ucsd.edu)
+
+*(EACH MEMBER WRITES STATEMENT OF CONTRIBUTION)*

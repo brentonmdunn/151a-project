@@ -564,7 +564,7 @@ Classification report:           	precision	recall  f1-score   support
    macro avg   	0.92  	0.85  	0.87 	10309
 weighted avg   	0.90  	0.87  	0.88 	10309
 ```
-**Figure 7:** Table showing training prcision and recall for model 2
+**Figure 7:** Table showing training precision and recall for model 2
 
 ```
 SVM Test Accuracy: 0.24506024096385544
@@ -622,7 +622,7 @@ Classification report:           	precision	recall  f1-score   support
    macro avg   	0.35  	0.24  	0.24  	2241
 weighted avg   	0.32  	0.27  	0.25  	2241
 ```
-**Figure 8:** Table showing testing prcision and recall for model 2
+**Figure 8:** Table showing testing precision and recall for model 2
 
 
 ## Discussion

@@ -431,6 +431,8 @@ After performing our preprocessing steps, we resulted in a consistent dataset, w
 <br>
 After the initial preprocessing, we added extra preprocessing steps for our HOG + SVM model. This included extracting HOG features from the image inputs to capture the plant shapes and appearances by detecting the gradient and orientations of different regions. Then we also scaled the HOG features to normalize the values so that the SVM would not be impacted by specific distances too much especially since SVM is a distance-based classifier
 
+### Train, Validation, and Test Accuracy
+
 Model 1: CNN
 - Train accuracy: 76.41%
 - Validation accuracy: 19.15%
@@ -441,7 +443,8 @@ Model 2: HOG + SVM
 - Validation accuracy: 25.31%
 - Test accuracy: 24.50%
 
-For **Model 1 (CNN)**, the training accuracy was 76.41%, but the validation accuracy dropped significantly to 19.15%, with the test accuracy further decreasing to 20.17%. This indicates that the CNN model struggled to generalize to unseen data.
+### Model 1 Results
+For Model 1 **(CNN)**, the training accuracy was 76.41%, but the validation accuracy dropped significantly to 19.15%, with the test accuracy further decreasing to 20.17%. This indicates that the CNN model struggled to generalize to unseen data.
 <br>
 ![image](https://github.com/user-attachments/assets/0f06c556-aa20-495d-aa41-ff061334c6cd)
 <br>
@@ -454,7 +457,8 @@ Model 1 Confusion Matrix:
 The dark spots on the diagonal indicate which classes the CNN model predicted more accurately (e.g. Lilium, Boston Fern)
 <br><br>
 
-**Model 2 (HOG + SVM)** showed improved performance across all metrics. The training accuracy was 87.35%, with a validation accuracy of 25.31% and a test accuracy of 24.50%. These results indicate a notable improvement in generalization compared to the CNN model, as the drop in accuracy from training to validation and test sets was less pronounced.
+### Model 2 Results
+Model 2 **(HOG + SVM)** showed improved performance across all metrics. The training accuracy was 87.35%, with a validation accuracy of 25.31% and a test accuracy of 24.50%. These results indicate a notable improvement in generalization compared to the CNN model, as the drop in accuracy from training to validation and test sets was less pronounced.
 <br>
 <img src="https://github.com/user-attachments/assets/7b3b47c1-5fd5-4475-aee8-994115c5ed7b" alt="Fit" width="600" />
 <br>

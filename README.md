@@ -431,7 +431,6 @@ Although the test accuracy for both models was lower than we expected, there are
 Use techniques like oversampling or generating synthetic data to give the underrepresented species a better proportion.
 For the CNN, experiment with deeper architectures or use pre-trained models like ResNet or VGG. And, we can also train with more epochs.
 Perform more hyperparameter tuning on the SVM.
-Add metrics like precision, recall, and F1-score to see where the models do well and where they fall short.
 
 Overall, this project taught us a lot about the trade-offs between traditional machine learning and deep learning. CNNs are powerful but need careful setup and lots of data to work well. HOG + SVM is a simpler option that works decently in constrained situations but doesn’t have the flexibility of a deep learning model. While neither model was perfect, they each showed potential and gave us ideas for what to try next.
 

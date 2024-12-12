@@ -463,6 +463,7 @@ For Model 1 **(CNN)**, the training accuracy was 76.41%, but the validation accu
 ![image](https://github.com/user-attachments/assets/0f06c556-aa20-495d-aa41-ff061334c6cd)
 
 **Figure 3**: Accuracy graph for train and test data for model 1
+
 <br>
 This can be seen from the trend of training and test accuracy from this graph over multiple epochs. Even if we increased the number of epochs, the CNN already stopped improving the accuracy for the testing data.
 
@@ -471,6 +472,7 @@ Model 1 Confusion Matrix:
 <img src="https://github.com/user-attachments/assets/45d270b7-c547-4516-b680-abffb19f19d9" alt="Fit" width="600" />
 
 **Figure 4:** Confusion matrix for model 1
+
 <br>
 The dark spots on the diagonal indicate which classes the CNN model predicted more accurately (e.g. Lilium, Boston Fern)
 <br><br>
@@ -481,6 +483,7 @@ Model 2 **(HOG + SVM)** showed improved performance across all metrics. The trai
 <img src="https://github.com/user-attachments/assets/7b3b47c1-5fd5-4475-aee8-994115c5ed7b" alt="Fit" width="600" />
 
 **Figure 5:** Model performance bar chart for model 2
+
 <br>
 - Original: this had the original parameters that we tested with
 - Iteration 2: Improvements to the orientation
@@ -497,6 +500,7 @@ Model 2 Confusion Matrix:
 <img src="https://github.com/user-attachments/assets/ca07dc53-7bbe-4d5e-96a1-c8ab8ee113d4" alt="Fit" width="600" />
 
 **Figure 6:** Confusion matrix for model 2
+
 <br>
 Dark spots on the diagonal indicate which classes the HOG+SVM model predicted more accurately (e.g. Monstera Deliciosa, Chinese Money Plant)
 

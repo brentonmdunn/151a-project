@@ -523,5 +523,3 @@ Overall, this project taught us a lot about the trade-offs between traditional m
 - Matthew Tan (Coder, Writer, Reviewer): Documented preprocessing, experimented with potential models, and contributed to methods and results sections of written report
 - Trisha Tong (Coder, Writer): Performed data exploration, researched models for MS4, contributed to written report
 - Sophia Yu (Coder, Writer) preprocessed data, researched Model 1, graph plotting
-
-*(EACH MEMBER WRITES STATEMENT OF CONTRIBUTION)*

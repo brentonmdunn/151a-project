@@ -504,10 +504,11 @@ Model 2 Confusion Matrix:
 
 <br>
 Dark spots on the diagonal indicate which classes the HOG+SVM model predicted more accurately (e.g. Monstera Deliciosa, Chinese Money Plant)
+<br>
 
 Precision and Recall for Model 2:
 ```
-SVM Train Accuracy: 0.8716655349694442
+SVM Train Accuracy: 0.8746655349694442
 Classification report:           	precision	recall  f1-score   support
 
        	0   	0.91  	0.86  	0.88   	247
@@ -565,7 +566,7 @@ weighted avg   	0.90  	0.87  	0.88 	10309
 **Figure 7:** Table showing training prcision and recall for model 2
 
 ```
-SVM Test Accuracy: 0.26506024096385544
+SVM Test Accuracy: 0.24506024096385544
 Classification report:           	precision	recall  f1-score   support
 
        	0   	0.27  	0.19  	0.22    	53

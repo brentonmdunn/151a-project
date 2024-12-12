@@ -485,6 +485,7 @@ Model 2 **(HOG + SVM)** showed improved performance across all metrics. The trai
 **Figure 5:** Model performance bar chart for model 2
 
 <br>
+
 - Original: this had the original parameters that we tested with
 - Iteration 2: Improvements to the orientation
 - Iteration 3: Further improvements to the orientation

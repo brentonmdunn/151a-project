@@ -372,6 +372,11 @@ Please review the respective classification report and heatmap for this new mode
 
 
 # Written Report
+
+Code for MS3: [MS3.ipynb](https://github.com/brentonmdunn/fa24-cse151a-project/blob/Milestone5/MS3.ipynb)
+
+Code for MS4: [MS4-with-reports-maps.ipynb](https://github.com/brentonmdunn/fa24-cse151a-project/blob/Milestone5/MS4-with-reports-maps.ipynb)
+
 ## Introduction
 At a quick glance, humans are able to distinguish species of plants based on their color, texture, and structure. With knowledge of the differences between plant species, human classification of plants is fairly accurate. It is crucial to correctly identify a plant’s species in order to properly care for the plant. A misdiagnosis can lead to poor plant health or even plant death. 
 

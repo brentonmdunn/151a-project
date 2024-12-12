@@ -478,29 +478,40 @@ Dark spots on the diagonal indicate which classes the HOG+SVM model predicted mo
 This project explored two different approaches for classifying plant images: a Convolutional Neural Network (CNN) and a combination of Histogram of Oriented Gradients (HOG) with a Support Vector Machine (SVM). Here is a walkthrough of our process from start to finish.
 
 ### The Dataset
-The first challenge was with the dataset itself. Some plant species had more examples than others, which created an imbalance and may have made it harder for the models to learn about the less common species. We did some preprocessing–resizing, normalizing, and data augmentation–but looking back, we could’ve gone further. Because there were so many plant classes, there were certain ones that were overrepresented and others that were underrepresented. Techniques like oversampling the underrepresented species or generating more examples might have helped with the imbalance.
+The first challenge was with the dataset itself. Some plant species had more examples than others, which created an imbalance and may have made it harder for the models to learn about the less common species. We did some preprocessing–resizing, normalizing, and data augmentation–but looking back, we could’ve gone further. Because there were so many plant classes, there were certain ones that were overrepresented and others that were underrepresented. Techniques like oversampling the underrepresented species, generating more examples might have helped with the imbalance, or class weighting may have been helpful.
 
 ### Model 1: Convolutional Neural Network (CNN)
 We wanted to start with a CNN model because it’s a common tool for image classification. But in practice, it didn’t perform as well as we hoped. The training accuracy was decent, but when it came to validation and test data, the model struggled. This was probably a sign of overfitting–it learned the training data too well but couldn’t generalize to new images.
 
-The CNN’s architecture was pretty simple, with just two convolutional layers, and it might not have been deep enough to really pick up on the subtle differences between plant species. Also, we only trained it for five epochs, which wasn’t much time for the model to learn, especially for image data. On top of that, while we did some basic data augmentation, adding more variations like changing lighting or rotation might have helped the CNN handle real-world scenarios betters.
+The CNN’s architecture was pretty simple, with just two convolutional layers, and it might not have been deep enough to really pick up on the subtle differences between plant species. Also, we only trained it for five epochs, which wasn’t much time for the model to learn, especially for image data. On top of that, while we did some basic data augmentation, adding more variations like changing lighting or rotation might have helped the CNN handle real-world scenarios better.
 
 ### Model 2: HOG + SVM
-The HOG + SVM model did better overall. It did a good job of pulling out clear features like shapes and edges, and the SVM uses those features to separate the plant species into classes. While it outperformed the CNN, it still wasn’t ideal–especially on the validation and test sets. Similarly, this model showed having trouble with generalization too.
+The HOG + SVM model did better overall, as shown in the figure from the models section, from optimizing the various parameters including the HOG features and kernel.  It did a good job of pulling out clear features like shapes and edges, and the SVM uses those features to separate the plant species into classes. While it outperformed the CNN, it still wasn’t ideal–especially on the validation and test sets. Similarly, this model showed having trouble with generalization too.
 
-One thing about HOG + SVM is that it relies on manually crafted features, which means to might miss some of the more complex patterns that a deep learning model like a CNN could potentially learn. Also, we didn’t do much hyperparameter tuning for the SVM. If we’d spent more time tweaking settings like the kernel or regularization parameters, the results might have been better.
+One thing about HOG + SVM is that it relies on manually crafted features, which means it might miss some of the more complex patterns that a deep learning model like a CNN could potentially learn. Although we did hyperparameter tuning, there were some parameters that we could have also tested, such as number of bins in HOG or adjusting gamma in SVM parameters.
 
 ### Comparing the Two
 The CNN had the potential to automatically learn features directly from the images, but it needed more training, a better architecture, and maybe even more data. On the other hand, the HOG + SVM model didn’t require as much training or computational power, so it performed better under these constraints. But it also has its limits–it’s not as flexible and can’t adapt as well to complex datasets.
 
+### Shortcomings
+Both of our models overfit to the data. For our CNN in Milestone 3, this was largely due to a limitation in our understanding of CNNs and hyperparameter tuning in general. The overfitting observed was likely due to a lack of regularization - both our CNN and SVM models may have become excessively sensitive to specific patterns from the training data and the accompanying noise. Both these models are capable of representing complex functions, which may have led them to capture meaningless characteristics from our training data.
+
+We were also limited by computation power, particularly for the SVM model. Among our group, it took on average over 2 hours for each iteration, making hyperparameter training difficult due to the amount of time it took for each iteration. We were also unfamiliar with SDSC due to the recording never coming out. If we had access to more compute, we could better hyperparameter tune.
+
 ## Conclusion
 ### What We Learned
 Although the test accuracy for both models was lower than we expected, there are a lot of things we have learned for the future:
-Use techniques like oversampling or generating synthetic data to give the underrepresented species a better proportion.
-For the CNN, experiment with deeper architectures or use pre-trained models like ResNet or VGG. And, we can also train with more epochs.
-Perform more hyperparameter tuning on the SVM.
+1. Use techniques like oversampling or generating synthetic data to give the underrepresented species a better proportion.
+2. For the CNN, experiment with deeper architectures or use pre-trained models like ResNet or VGG. And, we can also train with more epochs.
+3. Perform more hyperparameter tuning on the SVM.
+4. Add metrics like precision, recall, and F1-score to see where the models do well and where they fall short.
 
-Overall, this project taught us a lot about the trade-offs between traditional machine learning and deep learning. CNNs are powerful but need careful setup and lots of data to work well. HOG + SVM is a simpler option that works decently in constrained situations but doesn’t have the flexibility of a deep learning model. While neither model was perfect, they each showed potential and gave us ideas for what to try next.
+We tested the pre-trained model ResNet that significantly boosted the accuracy of our model. However, we were unsure if we were allowed to utilize a pre-trained model and thus left it out of our final submission and analysis. If we were to go back and improve our model without any restrictions, we would highly consider using ResNet.
+
+### Future Work 
+While brainstorming and researching for what models we could use for milestones, another model type that we were considering were decision trees. This is something we can look at for future models with this dataset. We also learned a lot about hyperparameter tuning and neural networks after doing homeworks 4 and 5, and feel that we could have implemented a better CNN model for our milestone after doing homeworks 4 and 5. 
+
+Overall, this project taught us a lot about the trade-offs between traditional machine learning and deep learning. CNNs are powerful but need careful setup and lots of data to work well. HOG + SVM is a simpler option that works decently in constrained situations but doesn’t have the flexibility of a deep learning model. While neither model was perfect, they each showed potential and gave us ideas for what to try next. This process reinforced the idea that machine learning isn’t about finding the perfect solution–it’s about constant learning, testing, and improving.
 
 ## Statement of Collaboration
 - Catherine Du (c5du@ucsd.edu)

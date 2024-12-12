@@ -402,10 +402,23 @@ We chose a Convolutional Neural Network (CNN) as our first model. Our CNN model 
 
 The output of the convolutional layers is flattened and passed through two fully connected layers (```fc1```, ```fc2```).  ```fc1``` has an input size of 64 * 56 * 56 and 128 output neurons, followed by a ReLU activation. ```fc2``` has 128 inputs and outputs a number of classes specified in the model initialization. The model uses the Adam optimizer with ```learning rate=0.001``` and CrossEntropyLoss as the loss function. Training was performed for 5 epochs.
 
+At this time, we did not have a good understanding of hyperparameter tuning due to not learning it in the homeworks yet. We experimented with various batch sizes (32, 64, 128) and epochs (1-5).
+
 ### Model 2
 We chose a Support Vector Machine (SVM) as our second model, with Histogram of Oriented Gradients (HOG) as our feature representation method. Our HOG feature extraction process uses 12 gradient orientations, a 16x16 pixel cell size, and 2x2 cells per block, with ‘L2-Hys' block normalization.
 
 Our SVM model employs an 'rbf' kernel and utilizes default parameters for the SVC class from scikit-learn, and data scaling performed by StandardScaler prior to training.
+
+For this milestone, we did end up experimenting with hyperparameters. We tried both a linear and rbf kernel, different regularization parameters, and various parameters for HOG feature extraction. We ultimately ended up with the following parameters:
+
+- HOG extraction
+  - `orientation=12`
+  - `pixels_per_cell=(16,16)`
+  - `cells_per_block=(2,2)`
+  - `block_norm=’L2-Hys’`
+- SVC
+  - `C=1`
+  - `kernel=rbf`
 
 ## Results
 For Model 1 (CNN), the training accuracy was 76.41%, but the validation accuracy dropped significantly to 19.15%, with the test accuracy further decreasing to 20.17%. This indicates that the CNN model struggled to generalize to unseen data.

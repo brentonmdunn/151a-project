@@ -106,6 +106,8 @@ We are possibly underfitting with a too simple model since our:
 - Even though the training dataset is higher in accuracy than the validation and test, holistically speaking, we would need to run the epochs more to capture the data better.
   ![image](https://github.com/user-attachments/assets/477c517e-4d5f-4e15-86f4-43bb1601cdd2)
 
+
+
 We could try:
 - Deeper CNN model since the additional layers may be able to catch smaller details like certain patterns on the leaves
 - CNN with attention so that it could focus on more important parts, also like the patterns on leaves.
@@ -396,6 +398,7 @@ The images exhibited significant variability in terms of quality, resolution, an
 
 ![image](https://github.com/user-attachments/assets/a0e74172-ac9c-4e7f-8f12-7623beba7615)
 
+
 ### Preprocessing
 First, we checked for and removed any corrupted images to avoid potential issues during training, as corrupted images could negatively affect the model’s performance. Next, we resized all images to a consistent size of 224x224 pixels to ensure uniform input dimensions, which was crucial for the model to process the images efficiently and consistently. Initially, we were going to make the images black and white. However, with the feedback of the TAs, we decided to go with images with color since color is important to distinguish different plants.
 
@@ -435,6 +438,7 @@ As shown above in the Methods (link to the Methods section) section as well, our
 After performing our preprocessing steps, we resulted in a consistent dataset, where the images are all the same size and quality. Below is an example of preprocessing on an image:
 <br>
 ![image](https://github.com/user-attachments/assets/da85a928-a11b-4d32-ade7-6dff7a24a90e)
+
 <br>
 After the initial preprocessing, we added extra preprocessing steps for our HOG + SVM model. This included extracting HOG features from the image inputs to capture the plant shapes and appearances by detecting the gradient and orientations of different regions. Then we also scaled the HOG features to normalize the values so that the SVM would not be impacted by specific distances too much especially since SVM is a distance-based classifier
 
@@ -490,6 +494,9 @@ This project explored two different approaches for classifying plant images: a C
 
 ### The Dataset
 The first challenge was with the dataset itself. Some plant species had more examples than others, which created an imbalance and may have made it harder for the models to learn about the less common species. We did some preprocessing–resizing, normalizing, and data augmentation–but looking back, we could’ve gone further. Because there were so many plant classes, there were certain ones that were overrepresented and others that were underrepresented. Techniques like oversampling the underrepresented species, generating more examples might have helped with the imbalance, or class weighting may have been helpful.
+
+### Preprocessing
+Preprocessing images had a lot more to it than we initially thought. We started with the basic resizing and scaling. However, we didn't learn about feature extraction until MS4, in which we decided to use HOG extraction. 
 
 ### Model 1: Convolutional Neural Network (CNN)
 We wanted to start with a CNN model because it’s a common tool for image classification. But in practice, it didn’t perform as well as we hoped. The training accuracy was decent, but when it came to validation and test data, the model struggled. This was probably a sign of overfitting–it learned the training data too well but couldn’t generalize to new images.

@@ -505,7 +505,7 @@ Model 2 Confusion Matrix:
 <br>
 Dark spots on the diagonal indicate which classes the HOG+SVM model predicted more accurately (e.g. Monstera Deliciosa, Chinese Money Plant)
 <br>
-
+<br>
 Precision and Recall for Model 2:
 ```
 SVM Train Accuracy: 0.8746655349694442

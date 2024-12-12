@@ -404,7 +404,8 @@ For Model 1 (CNN), the training accuracy was 76.41%, but the validation accuracy
 
 Model 2 (HOG + SVM) showed improved performance across all metrics. The training accuracy was 87.35%, with a validation accuracy of 25.31% and a test accuracy of 24.50%. These results indicate a notable improvement in generalization compared to the CNN model, as the drop in accuracy from training to validation and test sets was less pronounced.
 
-*(INSERT RESULT FIGURES HERE)*
+<img src="https://github.com/user-attachments/assets/45d270b7-c547-4516-b680-abffb19f19d9" alt="Fit" width="600" />
+<img src="https://github.com/user-attachments/assets/ca07dc53-7bbe-4d5e-96a1-c8ab8ee113d4" alt="Fit" width="600" />
 
 ## Discussion
 This project explored two different approaches for classifying plant images: a Convolutional Neural Network (CNN) and a combination of Histogram of Oriented Gradients (HOG) with a Support Vector Machine (SVM). Here is a walkthrough of our process from start to finish.

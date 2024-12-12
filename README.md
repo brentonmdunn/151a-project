@@ -398,6 +398,7 @@ The images exhibited significant variability in terms of quality, resolution, an
 
 ![image](https://github.com/user-attachments/assets/a0e74172-ac9c-4e7f-8f12-7623beba7615)
 
+**Figure 1:** Bar chart showing number of inputs and their labels
 
 ### Preprocessing
 First, we checked for and removed any corrupted images to avoid potential issues during training, as corrupted images could negatively affect the model’s performance. Next, we resized all images to a consistent size of 224x224 pixels to ensure uniform input dimensions, which was crucial for the model to process the images efficiently and consistently. Initially, we were going to make the images black and white. However, with the feedback of the TAs, we decided to go with images with color since color is important to distinguish different plants.
@@ -439,6 +440,8 @@ After performing our preprocessing steps, we resulted in a consistent dataset, w
 <br>
 ![image](https://github.com/user-attachments/assets/da85a928-a11b-4d32-ade7-6dff7a24a90e)
 
+**Figure 2:** Image before and after basic pre processing
+
 <br>
 After the initial preprocessing, we added extra preprocessing steps for our HOG + SVM model. This included extracting HOG features from the image inputs to capture the plant shapes and appearances by detecting the gradient and orientations of different regions. Then we also scaled the HOG features to normalize the values so that the SVM would not be impacted by specific distances too much especially since SVM is a distance-based classifier
 
@@ -458,12 +461,16 @@ Model 2: HOG + SVM
 For Model 1 **(CNN)**, the training accuracy was 76.41%, but the validation accuracy dropped significantly to 19.15%, with the test accuracy further decreasing to 20.17%. This indicates that the CNN model struggled to generalize to unseen data.
 <br>
 ![image](https://github.com/user-attachments/assets/0f06c556-aa20-495d-aa41-ff061334c6cd)
+
+**Figure 3**: Accuracy graph for train and test data for model 1
 <br>
 This can be seen from the trend of training and test accuracy from this graph over multiple epochs. Even if we increased the number of epochs, the CNN already stopped improving the accuracy for the testing data.
 
 Model 1 Confusion Matrix:
 <br>
 <img src="https://github.com/user-attachments/assets/45d270b7-c547-4516-b680-abffb19f19d9" alt="Fit" width="600" />
+
+**Figure 4:** Confusion matrix for model 1
 <br>
 The dark spots on the diagonal indicate which classes the CNN model predicted more accurately (e.g. Lilium, Boston Fern)
 <br><br>
@@ -472,6 +479,8 @@ The dark spots on the diagonal indicate which classes the CNN model predicted mo
 Model 2 **(HOG + SVM)** showed improved performance across all metrics. The training accuracy was 87.35%, with a validation accuracy of 25.31% and a test accuracy of 24.50%. These results indicate a notable improvement in generalization compared to the CNN model, as the drop in accuracy from training to validation and test sets was less pronounced.
 <br>
 <img src="https://github.com/user-attachments/assets/7b3b47c1-5fd5-4475-aee8-994115c5ed7b" alt="Fit" width="600" />
+
+**Figure 5:** Model performance bar chart for model 2
 <br>
 - Original: this had the original parameters that we tested with
 - Iteration 2: Improvements to the orientation
@@ -486,8 +495,128 @@ Our final is the best since we took the optimized parameters from when the model
 Model 2 Confusion Matrix:
 <br>
 <img src="https://github.com/user-attachments/assets/ca07dc53-7bbe-4d5e-96a1-c8ab8ee113d4" alt="Fit" width="600" />
+
+**Figure 6:** Confusion matrix for model 2
 <br>
 Dark spots on the diagonal indicate which classes the HOG+SVM model predicted more accurately (e.g. Monstera Deliciosa, Chinese Money Plant)
+
+Precision and Recall for Model 2:
+```
+SVM Train Accuracy: 0.8716655349694442
+Classification report:           	precision	recall  f1-score   support
+
+       	0   	0.91  	0.86  	0.88   	247
+       	1   	0.99  	0.87  	0.93   	203
+       	2   	0.94  	0.90  	0.92   	228
+       	3   	1.00  	0.83  	0.91   	131
+       	4   	0.99  	0.78  	0.87   	117
+       	5   	0.84  	0.79  	0.82   	186
+       	6   	0.88  	0.96  	0.92   	290
+       	7   	0.95  	0.90  	0.92   	279
+       	8   	0.98  	0.88  	0.92   	181
+       	9   	0.85  	0.89  	0.87   	176
+      	10   	0.93  	0.78  	0.85   	164
+      	11   	1.00  	0.53  	0.70    	90
+      	12   	0.63  	0.95  	0.76   	335
+      	13   	1.00  	0.78  	0.87   	169
+      	14   	0.49  	0.96  	0.65   	237
+      	15   	1.00  	0.59  	0.74    	46
+      	16   	0.86  	0.90  	0.88   	377
+      	17   	0.91  	0.94  	0.92   	293
+      	18   	0.99  	0.84  	0.91   	232
+      	19   	0.89  	0.90  	0.89   	214
+      	20   	0.97  	0.82  	0.89   	230
+      	21   	0.75  	0.95  	0.84   	382
+      	22   	0.79  	0.89  	0.84   	222
+      	23   	0.91  	0.85  	0.88   	140
+      	24   	1.00  	0.59  	0.74   	145
+      	25   	0.98  	0.89  	0.93   	137
+      	26   	0.92  	0.92  	0.92   	317
+      	27   	0.93  	0.90  	0.92   	237
+      	28   	0.92  	0.95  	0.93   	266
+      	29   	0.65  	0.93  	0.77   	359
+      	30   	0.90  	0.90  	0.90   	237
+      	31   	0.96  	0.86  	0.90   	229
+      	32   	0.94  	0.92  	0.93   	269
+      	33   	0.93  	0.93  	0.93   	306
+      	34   	1.00  	0.65  	0.79   	139
+      	35   	0.96  	0.84  	0.89   	218
+      	36   	0.99  	0.85  	0.91   	220
+      	37   	0.98  	0.85  	0.91   	251
+      	38   	0.90  	0.80  	0.84   	214
+      	39   	0.96  	0.84  	0.90   	186
+      	40   	1.00  	0.86  	0.92   	163
+      	41   	0.78  	0.97  	0.87   	235
+      	42   	0.98  	0.85  	0.91   	242
+      	43   	0.94  	0.91  	0.92   	276
+      	44   	1.00  	0.86  	0.92   	125
+      	45   	1.00  	0.72  	0.84   	167
+      	46   	0.97  	0.77  	0.86   	202
+
+	accuracy                       	0.87 	10309
+   macro avg   	0.92  	0.85  	0.87 	10309
+weighted avg   	0.90  	0.87  	0.88 	10309
+```
+**Figure 7:** Table showing training prcision and recall for model 2
+
+```
+SVM Test Accuracy: 0.26506024096385544
+Classification report:           	precision	recall  f1-score   support
+
+       	0   	0.27  	0.19  	0.22    	53
+       	1   	0.14  	0.02  	0.04    	44
+       	2   	0.26  	0.12  	0.17    	49
+       	3   	0.57  	0.28  	0.37    	29
+       	4   	0.67  	0.31  	0.42    	26
+       	5   	0.17  	0.12  	0.14    	40
+       	6   	0.26  	0.29  	0.27    	63
+       	7   	0.14  	0.08  	0.11    	60
+       	8   	0.43  	0.23  	0.30    	40
+       	9   	0.29  	0.32  	0.30    	38
+      	10   	0.00  	0.00  	0.00    	36
+      	11   	1.00  	0.05  	0.10    	20
+      	12   	0.18  	0.42  	0.25    	72
+      	13   	0.67  	0.05  	0.10    	37
+      	14   	0.14  	0.44  	0.21    	52
+      	15   	0.00  	0.00  	0.00    	10
+      	16   	0.20  	0.32  	0.25    	82
+      	17   	0.38  	0.38  	0.38    	64
+      	18   	0.67  	0.04  	0.08    	50
+      	19   	0.41  	0.28  	0.33    	46
+      	20   	0.25  	0.06  	0.10    	50
+      	21   	0.19  	0.52  	0.28    	83
+      	22   	0.27  	0.38  	0.32    	48
+      	23   	0.52  	0.45  	0.48    	31
+      	24   	1.00  	0.03  	0.06    	32
+      	25   	0.87  	0.43  	0.58    	30
+      	26   	0.19  	0.25  	0.22    	69
+      	27   	0.21  	0.13  	0.16    	52
+      	28   	0.24  	0.36  	0.29    	58
+      	29   	0.20  	0.47  	0.28    	78
+      	30   	0.37  	0.35  	0.36    	52
+      	31   	0.40  	0.44  	0.42    	50
+      	32   	0.24  	0.40  	0.30    	58
+      	33   	0.37  	0.44  	0.40    	66
+      	34   	0.00  	0.00  	0.00    	30
+      	35   	0.26  	0.11  	0.15    	47
+      	36   	0.19  	0.08  	0.12    	48
+      	37   	0.45  	0.35  	0.40    	54
+      	38   	0.34  	0.34  	0.34    	47
+      	39   	0.40  	0.20  	0.27    	40
+      	40   	0.50  	0.03  	0.05    	36
+      	41   	0.30  	0.51  	0.38    	51
+      	42   	0.21  	0.11  	0.15    	53
+      	43   	0.41  	0.47  	0.43    	60
+      	44   	0.50  	0.15  	0.23    	27
+      	45   	0.20  	0.03  	0.05    	36
+      	46   	0.54  	0.16  	0.25    	44
+
+	accuracy                       	0.27  	2241
+   macro avg   	0.35  	0.24  	0.24  	2241
+weighted avg   	0.32  	0.27  	0.25  	2241
+```
+**Figure 8:** Table showing testing prcision and recall for model 2
+
 
 ## Discussion
 This project explored two different approaches for classifying plant images: a Convolutional Neural Network (CNN) and a combination of Histogram of Oriented Gradients (HOG) with a Support Vector Machine (SVM). Here is a walkthrough of our process from start to finish.

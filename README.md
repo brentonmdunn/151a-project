@@ -373,6 +373,8 @@ Please review the respective classification report and heatmap for this new mode
 
 # Written Report
 
+Some exploration code in our notebooks prevented GitHub from showing the notebook preview. If you would like to see the full exploration code, uncomment lines that say `Removed so GitHub preview works`.
+
 Code for MS3: [MS3.ipynb](https://github.com/brentonmdunn/fa24-cse151a-project/blob/Milestone5/MS3.ipynb)
 
 Code for MS4: [MS4-with-reports-maps.ipynb](https://github.com/brentonmdunn/fa24-cse151a-project/blob/Milestone5/MS4-with-reports-maps.ipynb)

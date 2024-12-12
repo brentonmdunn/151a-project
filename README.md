@@ -387,6 +387,8 @@ The dataset used in this study was sourced from Kaggle and contained a total of 
 
 The images exhibited significant variability in terms of quality, resolution, and size. They were taken in both indoor and outdoor settings and included a variety of perspectives, such as close-up images of plant features and full depictions of entire plants. This variability in image characteristics required careful consideration during preprocessing to ensure consistent and high-quality input for model training.
 
+![image](https://github.com/user-attachments/assets/a0e74172-ac9c-4e7f-8f12-7623beba7615)
+
 ### Preprocessing
 Given the dataset's characteristics, we implemented the following preprocessing steps before training the model.
 

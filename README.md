@@ -1,4 +1,4 @@
-# CSE 151A Project
+# (CSE 151A Project) From Leaves to Labels: Classifying Houseplants with Machine Learning
 
 Group members:
 - Catherine Du (c5du@ucsd.edu)

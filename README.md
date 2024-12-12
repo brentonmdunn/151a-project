@@ -58,7 +58,8 @@ The parent folder for the data should be called `house_plant_species`. Move the 
   - download_data.py
   - data_exploration.ipynb
   - requirements.txt
-
+ 
+<details><summary>Previous Submissions</summary>
 ## Data Exploration
 This dataset was sourced from Kaggle and contains 14,790 images of various houseplant species across 47 classes. 
 
@@ -365,6 +366,9 @@ To improve the model, it may be helpful to augment the dataset with more diverse
 Please review the respective classification report and heatmap for this new model (called HOG+SVM). In addition, you can see the same details for our first model (CNN).
 
 <hr>
+
+</details>
+
 
 # Written Report
 ## Introduction

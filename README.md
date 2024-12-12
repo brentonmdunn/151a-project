@@ -59,7 +59,7 @@ The parent folder for the data should be called `house_plant_species`. Move the 
   - data_exploration.ipynb
   - requirements.txt
  
-<details><summary><h1>Previous Submissions</h1></summary>
+<details><summary><h1>Previous Submissions (click dropdown to view)</h1></summary>
 	
 ## Data Exploration
 This dataset was sourced from Kaggle and contains 14,790 images of various houseplant species across 47 classes. 

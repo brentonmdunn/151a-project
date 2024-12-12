@@ -518,10 +518,10 @@ While brainstorming and researching for what models we could use for milestones,
 Overall, this project taught us a lot about the trade-offs between traditional machine learning and deep learning. CNNs are powerful but need careful setup and lots of data to work well. HOG + SVM is a simpler option that works decently in constrained situations but doesn’t have the flexibility of a deep learning model. While neither model was perfect, they each showed potential and gave us ideas for what to try next. This process reinforced the idea that machine learning isn’t about finding the perfect solution–it’s about constant learning, testing, and improving.
 
 ## Statement of Collaboration
-- Catherine Du (c5du@ucsd.edu)
-- Brenton Dunn (bmdunn@ucsd.edu)
-- Matthew Tan (mztan@ucsd.edu)
-- Trisha Tong (trtong@ucsd.edu)
-- Sophia Yu (soy001@ucsd.edu)
+- Catherine Du  (Coder, Writer, Reviewer): Assisted with preprocessing, tuned HOG + SVM and added conclusions for MS4, added visuals for report
+- Brenton Dunn (Lead, Coder): Researched models for MS4, hyperparameter tuned SVM, went to TA office hours for more feedback
+- Matthew Tan (Coder, Writer, Reviewer): Documented preprocessing, experimented with potential models, and contributed to methods and results sections of written report
+- Trisha Tong (Coder, Writer): Performed data exploration, researched models for MS4, contributed to written report
+- Sophia Yu (Coder, Writer) preprocessed data, researched Model 1, graph plotting
 
 *(EACH MEMBER WRITES STATEMENT OF CONTRIBUTION)*

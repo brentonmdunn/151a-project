@@ -421,12 +421,58 @@ For this milestone, we did end up experimenting with hyperparameters. We tried b
   - `kernel=rbf`
 
 ## Results
-For Model 1 (CNN), the training accuracy was 76.41%, but the validation accuracy dropped significantly to 19.15%, with the test accuracy further decreasing to 20.17%. This indicates that the CNN model struggled to generalize to unseen data.
+### Data Exploration
+As shown above in the Methods (link to the Methods section) section as well, our dataset consisted of a total of 14,790 images of various houseplant species, with 47 different class categories. These classes are organized in folders, with each folder named after a specific plant species, so it’s easy to identify and segregate the data based on plant type. We also mentioned how the images varied in quality, resolution, and size. In addition, they were taken in various settings and from different perspectives, such as close-up and full depictions. Because of the variations, preprocessing was necessary to ensure consistency. 
 
-Model 2 (HOG + SVM) showed improved performance across all metrics. The training accuracy was 87.35%, with a validation accuracy of 25.31% and a test accuracy of 24.50%. These results indicate a notable improvement in generalization compared to the CNN model, as the drop in accuracy from training to validation and test sets was less pronounced.
+### Preprocessing
+After performing our preprocessing steps, we resulted in a consistent dataset, where the images are all the same size and quality. Below is an example of preprocessing on an image:
+<br>
+![image](https://github.com/user-attachments/assets/da85a928-a11b-4d32-ade7-6dff7a24a90e)
+<br>
+After the initial preprocessing, we added extra preprocessing steps for our HOG + SVM model. This included extracting HOG features from the image inputs to capture the plant shapes and appearances by detecting the gradient and orientations of different regions. Then we also scaled the HOG features to normalize the values so that the SVM would not be impacted by specific distances too much especially since SVM is a distance-based classifier
 
+Model 1: CNN
+- Train accuracy: 76.41%
+- Validation accuracy: 19.15%
+- Test accuracy: 20.17%
+
+Model 2: HOG + SVM
+- Train accuracy: 87.35%
+- Validation accuracy: 25.31%
+- Test accuracy: 24.50%
+
+For **Model 1 (CNN)**, the training accuracy was 76.41%, but the validation accuracy dropped significantly to 19.15%, with the test accuracy further decreasing to 20.17%. This indicates that the CNN model struggled to generalize to unseen data.
+<br>
+![image](https://github.com/user-attachments/assets/0f06c556-aa20-495d-aa41-ff061334c6cd)
+<br>
+This can be seen from the trend of training and test accuracy from this graph over multiple epochs. Even if we increased the number of epochs, the CNN already stopped improving the accuracy for the testing data.
+
+Model 1 Confusion Matrix:
+<br>
 <img src="https://github.com/user-attachments/assets/45d270b7-c547-4516-b680-abffb19f19d9" alt="Fit" width="600" />
+<br>
+The dark spots on the diagonal indicate which classes the CNN model predicted more accurately (e.g. Lilium, Boston Fern)
+<br><br>
+
+**Model 2 (HOG + SVM)** showed improved performance across all metrics. The training accuracy was 87.35%, with a validation accuracy of 25.31% and a test accuracy of 24.50%. These results indicate a notable improvement in generalization compared to the CNN model, as the drop in accuracy from training to validation and test sets was less pronounced.
+<br>
+<img src="https://github.com/user-attachments/assets/7b3b47c1-5fd5-4475-aee8-994115c5ed7b" alt="Fit" width="600" />
+<br>
+- Original: this had the original parameters that we tested with
+- Iteration 2: Improvements to the orientation
+- Iteration 3: Further improvements to the orientation
+- Iteration 4: Reverted to original parameters, but improved the cells per block
+- Iteration 5: Reverted to original parameters, but improved the pixels per cells
+- Iteration 6: Reverted to original parameters, but changed kernel to rbf instead of linear
+- Final: Used best orientation from iteration 3, cells per block from iteration 4, and rbf kernel
+
+Our final is the best since we took the optimized parameters from when the model was using the linear kernel besides the pixels per cell since it resulted in an overfit model. Changing the regularization after these iterations resulted in severe overfitting so we left it at 1.
+
+Model 2 Confusion Matrix:
+<br>
 <img src="https://github.com/user-attachments/assets/ca07dc53-7bbe-4d5e-96a1-c8ab8ee113d4" alt="Fit" width="600" />
+<br>
+Dark spots on the diagonal indicate which classes the HOG+SVM model predicted more accurately (e.g. Monstera Deliciosa, Chinese Money Plant)
 
 ## Discussion
 This project explored two different approaches for classifying plant images: a Convolutional Neural Network (CNN) and a combination of Histogram of Oriented Gradients (HOG) with a Support Vector Machine (SVM). Here is a walkthrough of our process from start to finish.

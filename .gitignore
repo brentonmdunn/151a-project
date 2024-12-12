@@ -1,3 +1,5 @@
 .venv
 .env
-house_plant_species
+house-plant-species*
+images*
+processed_images
